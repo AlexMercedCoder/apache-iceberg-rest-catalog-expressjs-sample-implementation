@@ -47,7 +47,7 @@ export const v1_prefix_namespaces_namespace_get = (req, res) => {
 
 // "/:prefix/namespaces/:namespace (delete)"
 export const v1_prefix_namespaces_namespace_delete = (req, res) => {
-  res.json({ message: "/:prefix/namespaces/:namespace (delete)" });
+  res.status(204).send("Success, No Content");
 };
 
 // "/:prefix/namespaces/:namespace/properties (post)"
