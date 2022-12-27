@@ -15,11 +15,9 @@ export const v1_config = (req, res) => {
 };
 
 // "/oauth/tokens"
-export const v1_oauth_tokens =
-  (req,
-  (res) => {
-    res.json({ token_type: "N_A", access_token: "" });
-  });
+export const v1_oauth_tokens = (req, res) => {
+  res.json({ token_type: "N_A", access_token: "" });
+};
 
 // "/:prefix/namespaces (get)"
 export const v1_prefix_namespaces_get = (req, res) => {
@@ -36,7 +34,10 @@ export const v1_prefix_namespaces_get = (req, res) => {
 
 // "/:prefix/namespaces (post)"
 export const v1_prefix_namespaces_post = (req, res) => {
-  res.json({ message: "/:prefix/namespaces (post)" });
+
+  const namespace = helpers.createNamespace(req.body.namespace)
+
+  res.json({ namespace, properties: {}});
 };
 
 // "/:prefix/namespaces/:namespace (get)"

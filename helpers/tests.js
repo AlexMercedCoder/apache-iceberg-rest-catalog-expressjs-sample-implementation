@@ -1,4 +1,5 @@
 import * as helpers from "./index.js"
+import catalog from "../middleware/catalog.js"
 
 const fakeCatalog = {
     glue: {
@@ -23,3 +24,7 @@ console.log(
         "getting a list of name spaces",
         helpers.namespaceList(helpers.splitNamepsace(undefined), [], fakeCatalog)
         )
+
+helpers.createNamespace(["accounting", "tax"])
+
+console.log(catalog)

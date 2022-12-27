@@ -41,3 +41,20 @@ export const namespaceList = (nameSplit, partsSoFar = [], catalogLevel = catalog
         return namespaceList(nameSplit, partsSoFar, catalogLevel[partsSoFar.at(-1)])
     }
 }
+
+// recursive function to return list of namespaces
+export const createNamespace = (namespaceToMake, partsSoFar = [], catalogLevel = catalog) => {
+    
+    // check if next portion of namespace exists
+    if (!catalogLevel[namespaceToMake[0]]){
+        catalogLevel[namespaceToMake[0]] = {}
+    }
+    // moved checked portion to partsSoFar
+    partsSoFar.push(namespaceToMake.splice(0,1)[0])
+    // check if we have more parts to check
+    if(namespaceToMake.length < 1){
+        return partsSoFar
+    } else {
+        return createNamespace(namespaceToMake, partsSoFar, catalogLevel[partsSoFar.at(-1)])
+    }
+}
