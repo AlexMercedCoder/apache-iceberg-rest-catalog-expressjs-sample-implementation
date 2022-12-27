@@ -1,8 +1,8 @@
 import cors from "cors"
 import morgan from "morgan"
 import express from "express"
-import corsOptions from "./cors"
-import rootRouter from "../routers"
+import corsOptions from "./cors.js"
+import rootRouter from "../routers/index.js"
 
 const middleware = (app) => {
     // allow all if not in production, use cors configurations if production

@@ -1,5 +1,5 @@
 import express from "express"
-import icebergRouter from "./iceberg"
+import icebergRouter from "./iceberg/index.js"
 
 const rootRouter = express.Router()
 

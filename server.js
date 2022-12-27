@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
 import express from "express"
-import middleware from "./middleware"
+import middleware from "./middleware/index.js"
 
 // bring in .env variables
 dotenv.config()
