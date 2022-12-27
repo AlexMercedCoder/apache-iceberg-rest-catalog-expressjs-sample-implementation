@@ -12,6 +12,8 @@ const middleware = (app) => {
     app.use(morgan("dev"))
     // parse JSON request bodies into req.body
     app.use(express.json())
+    // parse url encoded bodies
+    app.use(express.urlencoded({extended: true}))
     // add catalog to req.catalog
     app.use((req, res, next) => {
         req.catalog = catalog
