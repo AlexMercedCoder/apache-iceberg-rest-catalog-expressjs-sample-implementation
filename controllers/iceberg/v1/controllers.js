@@ -42,7 +42,7 @@ export const v1_prefix_namespaces_post = (req, res) => {
 
 // "/:prefix/namespaces/:namespace (get)"
 export const v1_prefix_namespaces_namespace_get = (req, res) => {
-  res.json({ message: "/:prefix/namespaces/:namespace (get)" });
+  res.json({ namespace: req.params.namespace.split("%1F"), properties: {}});
 };
 
 // "/:prefix/namespaces/:namespace (delete)"
