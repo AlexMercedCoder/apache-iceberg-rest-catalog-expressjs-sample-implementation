@@ -17,7 +17,7 @@ export const v1_config = (req, res) => {
 export const v1_oauth_tokens =
   (req,
   (res) => {
-    res.json({ message: "/oauth/tokens" });
+    res.json({ token_type: "N_A", access_token: "" });
   });
 
 // "/:prefix/namespaces (get)"
