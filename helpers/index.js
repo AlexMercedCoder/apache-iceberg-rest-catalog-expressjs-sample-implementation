@@ -58,3 +58,19 @@ export const createNamespace = (namespaceToMake, partsSoFar = [], catalogLevel =
         return createNamespace(namespaceToMake, partsSoFar, catalogLevel[partsSoFar.at(-1)])
     }
 }
+
+export const getNameSpace = (namespace = []) => {
+    const space = namespace.reduce((level, name) => {
+        if(level[name] && typeof level[name] === "object"){
+            return level[name]
+        } else { 
+            throw "Namespace doesn't exist"
+        }
+    }, catalog)
+
+    return space
+}
+
+export const listStuff = (namespace) => {
+    return Object.keys(namespace)
+}

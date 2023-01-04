@@ -34,15 +34,14 @@ export const v1_prefix_namespaces_get = (req, res) => {
 
 // "/:prefix/namespaces (post)"
 export const v1_prefix_namespaces_post = (req, res) => {
+  const namespace = helpers.createNamespace(req.body.namespace);
 
-  const namespace = helpers.createNamespace(req.body.namespace)
-
-  res.json({ namespace, properties: {}});
+  res.json({ namespace, properties: {} });
 };
 
 // "/:prefix/namespaces/:namespace (get)"
 export const v1_prefix_namespaces_namespace_get = (req, res) => {
-  res.json({ namespace: req.params.namespace.split("%1F"), properties: {}});
+  res.json({ namespace: req.params.namespace.split("%1F"), properties: {} });
 };
 
 // "/:prefix/namespaces/:namespace (delete)"
@@ -52,12 +51,15 @@ export const v1_prefix_namespaces_namespace_delete = (req, res) => {
 
 // "/:prefix/namespaces/:namespace/properties (post)"
 export const v1_prefix_namespaces_namespace_properties = (req, res) => {
-  res.json({ message: "/:prefix/namespaces/:namespace/properties" });
+  res.json({ updated: [], removed: [], missing: [] });
 };
 
 // "/:prefix/namespaces/:namespace/tables (get)"
 export const v1_prefix_namespaces_namespace_tables_get = (req, res) => {
-  res.json({ message: "/:prefix/namespaces/:namespace/tables (get)" });
+  const tables = helpers.listStuff(
+    helpers.getNameSpace(helpers.splitNamepsace(params.namespace))
+  );
+  res.json({ identifiers: tables });
 };
 
 // "/:prefix/namespaces/:namespace/tables (post)"
